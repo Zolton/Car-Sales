@@ -4,21 +4,24 @@ import AddedFeatures from "./components/AddedFeatures";
 import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 import { connect } from "react-redux";
-import { addItem, ADD_FEATURE, removeItem, REMOVE_FEATURE} from "./action/action";
+import {
+  addItem,
+  ADD_FEATURE,
+  removeItem,
+  REMOVE_FEATURE
+} from "./action/action";
 import ReactDOM from "react-dom";
 
-
 const App = props => {
-
   const removeItem = item => {
     // dispatch an action here to remove an item
-    props.removeItem(item)
+    props.removeItem(item);
   };
 
-   const buyItem = item => {
+  const buyItem = item => {
     // dispatch an action here to remove an item
-    props.addItem(item)
-  }
+    props.addItem(item);
+  };
 
   // console.log("props on app");
   // console.log(props);
@@ -43,8 +46,6 @@ const mapStateToProps = state => {
     store: state.store
   };
 };
-
-
 
 export default connect(
   mapStateToProps,

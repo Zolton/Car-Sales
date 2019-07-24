@@ -19,23 +19,3 @@ export const removeItem = (removeFeature) => {
     payload: removeFeature
   };
 }
-
-// export const removeNewItem = "REMOVE_ITEM";
-
-// export function removeItem(item) {
-//   console.log("from action.js");
-//   console.log(item);
-//   return {
-//     type: buyNewItem,
-//     payload: item
-//   };
-// }
-
-// export const addNewTask = "ADD_NEW_TASK";
-
-// export function addTask(newTask) {
-//   return {
-//     type: addNewTask,
-//     payload: newTask
-//   };
-// }
