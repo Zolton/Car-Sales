@@ -10,7 +10,7 @@ import {
 const initialState = {
   additionalPrice: 0,
   car: {
-    price: 0,
+    price: 26000,
     name: "2019 Ford Mustang",
     image:
       "https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg",
@@ -37,10 +37,8 @@ export const reducer = (state = initialState, action) => {
           ...state.car,
           features: [...state.car.features, action.payload]
         },
-        additionalPrice: [state.car.price + action.payload.price]
-        
+        additionalPrice: action.payload.price
 
-        
       };
 
     // case removeNewItem:
