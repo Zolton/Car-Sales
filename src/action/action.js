@@ -1,8 +1,8 @@
 export const ADD_FEATURE = "ADD_ITEM";
 
 export const addItem = (newFeature) => {
-  console.log("from action.js - newFeature");
-  console.log(newFeature);
+//   console.log("from action.js - newFeature");
+//   console.log(newFeature);
   return {
     type: ADD_FEATURE,
     payload: newFeature
