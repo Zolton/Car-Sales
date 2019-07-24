@@ -1,5 +1,5 @@
 import React from "react";
-import {buyItem, buyNewItem} from "../action/action"
+import {buyItem, buyNewItem, removeNewItem, removeItem} from "../action/action"
 
 const initialState = {
   additionalPrice: 0,
@@ -27,6 +27,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         additionalPrice: state.additionalPrice + action.payload
+      };
+
+      case removeNewItem:
+      return {
+        ...state,
+        price: state.price - action.payload
       };
 
     default:

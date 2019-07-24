@@ -9,6 +9,17 @@ export function buyItem(item) {
   };
 }
 
+export const removeNewItem = "REMOVE_ITEM";
+
+export function removeItem(item) {
+  console.log("from action.js");
+  console.log(item);
+  return {
+    type: buyNewItem,
+    payload: item
+  };
+}
+
 // export const addNewTask = "ADD_NEW_TASK";
 
 // export function addTask(newTask) {

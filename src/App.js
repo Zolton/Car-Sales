@@ -4,54 +4,51 @@ import AddedFeatures from "./components/AddedFeatures";
 import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 import { connect } from "react-redux";
-import {buyItem} from "./action/action"
-import ReactDOM from "react-dom"
+import { buyItem, removeItem } from "./action/action";
+import ReactDOM from "react-dom";
 
-class App extends React.Component {
- 
+const App = props => {
+  
+  // removeItem = item => {
+  //   // dispatch an action here to remove an item
 
-  removeFeature = item => {
-    // dispatch an action here to remove an item
-
-  };
+  // };
 
   // buyItem = item => {
   //   console.log("from app.js")
   //   console.log(item)
   //   dispatch({ type: "ADD_ITEM", payload: item });
   //   return {
-  //     type: "ADD_ITEM", 
+  //     type: "ADD_ITEM",
   //     payload: item
   // }
   // };
 
-  render() {
-    console.log("props on app")
-    console.log(this.props)
-    return (
-      <div className="boxes">
-        <div className="box">
-          <Header car={this.props.car} />
-          <AddedFeatures car={this.props.car} />
-        </div>
-        <div className="box">
-          <AdditionalFeatures store={this.props.store} buyItem={this.props.buyItem} />
-          <Total
-            car={this.props.car}
-            additionalPrice={this.props.additionalPrice}
-          />
-        </div>
+  console.log("props on app");
+  console.log(props);
+  return (
+    <div className="boxes">
+      <div className="box">
+        <Header car={props.car} />
+        <AddedFeatures removeItem={props.removeItem} car={props.car} />
       </div>
-    );
-  }
-}
+      <div className="box">
+        <AdditionalFeatures store={props.store} buyItem={props.buyItem} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
+      </div>
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {
     additionalPrice: state.additionalPrice,
     car: state.car,
-    store: state.store,
+    store: state.store
   };
 };
 
-export default connect(mapStateToProps, {buyItem})(App);
+export default connect(
+  mapStateToProps,
+  { buyItem, removeItem }
+)(App);
