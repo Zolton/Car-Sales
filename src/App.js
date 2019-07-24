@@ -4,19 +4,29 @@ import AddedFeatures from "./components/AddedFeatures";
 import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 import { connect } from "react-redux";
+import {buyItem} from "./action/action"
+import ReactDOM from "react-dom"
 
 class App extends React.Component {
  
 
   removeFeature = item => {
     // dispatch an action here to remove an item
+
   };
 
-  buyItem = item => {
-    // dipsatch an action here to add an item
-  };
+  // buyItem = item => {
+  //   console.log("from app.js")
+  //   console.log(item)
+  //   dispatch({ type: "ADD_ITEM", payload: item });
+  //   return {
+  //     type: "ADD_ITEM", 
+  //     payload: item
+  // }
+  // };
 
   render() {
+    console.log("props on app")
     console.log(this.props)
     return (
       <div className="boxes">
@@ -25,7 +35,7 @@ class App extends React.Component {
           <AddedFeatures car={this.props.car} />
         </div>
         <div className="box">
-          <AdditionalFeatures store={this.props.store} />
+          <AdditionalFeatures store={this.props.store} buyItem={this.props.buyItem} />
           <Total
             car={this.props.car}
             additionalPrice={this.props.additionalPrice}
@@ -44,4 +54,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {buyItem})(App);

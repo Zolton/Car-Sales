@@ -1,9 +1,10 @@
 import React from "react";
+import {buyItem, buyNewItem} from "../action/action"
 
 const initialState = {
   additionalPrice: 0,
   car: {
-    price: 26395,
+    price: 0,
     name: "2019 Ford Mustang",
     image:
       "https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg",
@@ -18,9 +19,16 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
+    console.log("reducer state")
+    console.log(state)
+    //console.log(additionalPrice)
   switch (action.type) {
+    case buyNewItem:
+      return {
+        ...state,
+        additionalPrice: state.additionalPrice + action.payload
+      };
 
-    
     default:
       return state;
   }
