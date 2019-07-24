@@ -20,18 +20,8 @@ const App = props => {
     props.addItem(item)
   }
 
-  // buyItem = item => {
-  //   console.log("from app.js")
-  //   console.log(item)
-  //   dispatch({ type: "ADD_ITEM", payload: item });
-  //   return {
-  //     type: "ADD_ITEM",
-  //     payload: item
-  // }
-  // };
-
-  console.log("props on app");
-  console.log(props);
+  // console.log("props on app");
+  // console.log(props);
   return (
     <div className="boxes">
       <div className="box">

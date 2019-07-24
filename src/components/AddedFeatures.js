@@ -3,8 +3,8 @@ import React from "react";
 import AddedFeature from "./AddedFeature";
 
 const AddedFeatures = props => {
-  console.log("Added features props");
-  console.log(props);
+  // console.log("Added features props");
+  // console.log(props);
   return (
     <div className="content">
       <h6>Added features:</h6>

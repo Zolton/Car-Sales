@@ -36,7 +36,11 @@ export const reducer = (state = initialState, action) => {
         car: {
           ...state.car,
           features: [...state.car.features, action.payload]
-        }
+        },
+        additionalPrice: [state.car.price + action.payload.price]
+        
+
+        
       };
 
     // case removeNewItem:
