@@ -1,24 +1,24 @@
-export const buyNewItem = "ADD_ITEM";
+export const ADD_FEATURE = "ADD_ITEM";
 
-export function buyItem(item) {
+export const addItem = (newFeature) => {
   console.log("from action.js");
-  console.log(item);
+  console.log(newFeature);
   return {
-    type: buyNewItem,
-    payload: item
+    type: ADD_FEATURE,
+    payload: newFeature
   };
 }
 
-export const removeNewItem = "REMOVE_ITEM";
+// export const removeNewItem = "REMOVE_ITEM";
 
-export function removeItem(item) {
-  console.log("from action.js");
-  console.log(item);
-  return {
-    type: buyNewItem,
-    payload: item
-  };
-}
+// export function removeItem(item) {
+//   console.log("from action.js");
+//   console.log(item);
+//   return {
+//     type: buyNewItem,
+//     payload: item
+//   };
+// }
 
 // export const addNewTask = "ADD_NEW_TASK";
 

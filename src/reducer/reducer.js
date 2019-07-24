@@ -1,5 +1,11 @@
 import React from "react";
-import {buyItem, buyNewItem, removeNewItem, removeItem} from "../action/action"
+import {
+  buyItem,
+  buyNewItem,
+  removeNewItem,
+  removeItem,
+  ADD_FEATURE
+} from "../action/action";
 
 const initialState = {
   additionalPrice: 0,
@@ -19,21 +25,25 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-    console.log("reducer state")
-    console.log(state)
-    //console.log(additionalPrice)
+  console.log("reducer state");
+  console.log(state);
+  //console.log(additionalPrice)
   switch (action.type) {
-    case buyNewItem:
+    case ADD_FEATURE:
       return {
         ...state,
-        additionalPrice: state.additionalPrice + action.payload
+        // An insane amount of drilling
+        car: {
+          ...state.car,
+          features: [...state.car.features, action.payload]
+        }
       };
 
-      case removeNewItem:
-      return {
-        ...state,
-        price: state.price - action.payload
-      };
+    // case removeNewItem:
+    //   return {
+    //     ...state,
+    //     price: state.price - action.payload
+    //   };
 
     default:
       return state;
