@@ -4,7 +4,8 @@ import {
   buyNewItem,
   removeNewItem,
   removeItem,
-  ADD_FEATURE
+  ADD_FEATURE,
+  REMOVE_FEATURE
 } from "../action/action";
 
 const initialState = {
@@ -25,7 +26,7 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log("reducer state");
+  console.log("what reducer sees as state");
   console.log(state);
   //console.log(additionalPrice)
   switch (action.type) {
@@ -41,11 +42,17 @@ export const reducer = (state = initialState, action) => {
 
       };
 
-    // case removeNewItem:
-    //   return {
-    //     ...state,
-    //     price: state.price - action.payload
-    //   };
+    case REMOVE_FEATURE:
+      return  {
+        ...state,
+        // An insane amount of drilling
+        car: {
+          ...state.car,
+          features: [...state.car.features]
+        },
+        additionalPrice: action.payload.price
+
+      };
 
     default:
       return state;
