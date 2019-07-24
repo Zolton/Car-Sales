@@ -5,14 +5,8 @@ import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 import { connect } from "react-redux";
 
-class App extends React.component {
-
-  state = {
-      additionalPrice: 0,
-      car: {},
-      store: []
-    };
-  
+class App extends React.Component {
+ 
 
   removeFeature = item => {
     // dispatch an action here to remove an item
@@ -23,18 +17,18 @@ class App extends React.component {
   };
 
   render() {
-    console.log(this.props);
+    console.log(this.props)
     return (
       <div className="boxes">
         <div className="box">
-          <Header car={this.state.car} />
-          <AddedFeatures car={this.state.car} />
+          <Header car={this.props.car} />
+          <AddedFeatures car={this.props.car} />
         </div>
         <div className="box">
-          <AdditionalFeatures store={this.state.store} />
+          <AdditionalFeatures store={this.props.store} />
           <Total
-            car={this.state.car}
-            additionalPrice={this.state.additionalPrice}
+            car={this.props.car}
+            additionalPrice={this.props.additionalPrice}
           />
         </div>
       </div>
@@ -44,11 +38,10 @@ class App extends React.component {
 
 const mapStateToProps = state => {
   return {
+    additionalPrice: state.additionalPrice,
     car: state.car,
     store: state.store,
-    additionalPrice: state.additionalPrice
   };
 };
 
-export default connect(
-  mapStateToProps)(App);
+export default connect(mapStateToProps)(App);
