@@ -26,8 +26,8 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log("what reducer sees as state");
-  console.log(state);
+//   console.log("what reducer sees as state");
+//   console.log(state);
   //console.log(additionalPrice)
   switch (action.type) {
     case ADD_FEATURE:
@@ -46,7 +46,12 @@ export const reducer = (state = initialState, action) => {
         ...state,
         car: {
           ...state.car,
-          features: state.car.features.filter(carFeature=>carFeature.name !== action.payload.name)
+          // carFeature.name === action.payload.name is the same/true, so its left behind
+          // ! inverts it, removes it if is the same/true
+          // filter removes false, leaves behind true
+          features: state.car.features.filter(
+            carFeature => carFeature.name !== action.payload.name
+          )
         },
         additionalPrice: state.additionalPrice - action.payload.price
       };
